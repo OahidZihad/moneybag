@@ -82,12 +82,17 @@
         depositBtn.addEventListener('click', function () {
             const depositNumber = getInputNumber('depositAmount');
 
-            //update deposit
-            updateSpanText('currentDeposit', depositNumber);
-            //update balance
-            updateSpanText('currentBalance', depositNumber);
+            if(depositNumber < 0){
+                alert('Deposit number cannot be negative.');
+            }
+            else{
+                //update deposit
+                updateSpanText('currentDeposit', depositNumber);
+                //update balance
+                updateSpanText('currentBalance', depositNumber);
 
-            document.getElementById('depositAmount').value = '';
+                document.getElementById('depositAmount').value = '';
+            }          
         })
 
         // withdraw button event handler
@@ -95,12 +100,17 @@
         withdrawBtn.addEventListener('click', function () {
             const withdrawNumber = getInputNumber('withdrawAmount')
 
-            //update withdraw
-            updateSpanText("currentWithdraw", withdrawNumber);
-            //update balance
-            updateSpanText("currentBalance", -1 * withdrawNumber);
+            if(withdrawNumber < 0){
+                alert('Withdraw number cannot be negative.');
+            }
+            else{
+                //update withdraw
+                updateSpanText("currentWithdraw", withdrawNumber);
+                //update balance
+                updateSpanText("currentBalance", -1 * withdrawNumber);
 
-            document.getElementById('withdrawAmount').value = '';
+                document.getElementById('withdrawAmount').value = '';
+            }
         })
 
         //add deposit and withdraw amount
